@@ -78,15 +78,6 @@ function showNextPuzzle(puzzleNumber) {
     }
 }
 
-function showGame(gameId) {
-    const gameSections = document.querySelectorAll('.game-section');
-    gameSections.forEach(section => section.classList.remove('active'));
-
-    const selectedGame = document.getElementById(gameId);
-    if (selectedGame) {
-        selectedGame.classList.add('active');
-    }
-}
 
 
 const items = [
@@ -340,3 +331,99 @@ document.addEventListener('DOMContentLoaded', () => {
             firstClue.classList.add('active');
         }
 });
+
+const agendaItems = [
+    { time: "1pm", activity: "Scavenger Hunt in the Mall", button: "scavenger-hunt" },
+    { time: "2:30pm", activity: "Read out Jars, Diaries, New Year Resolutions and a treat", button: null },
+    { time: "3:30pm", activity: "Escape Room", button: "escape-room" },
+    { time: "4pm", activity: "Snacks", button: null },
+    { time: "5pm", activity: "Charades", button: "charades" },
+    { time: "6pm", activity: "Quiz", button: "quiz" },
+    { time: "7pm/8pm", activity: "Dinner", button: null },
+    { time: "9pm", activity: "Movie - Wallace & Gromit: Vengeance Most Fowl & Snacks", button: null },
+    { time: "12am", activity: "New Years! Drinks and party poppers!", button: null },
+];
+
+let currentAgendaIndex = 0;
+
+function updateAgenda() {
+    const agendaItem = agendaItems[currentAgendaIndex];
+    const agendaElement = document.getElementById("agenda-item");
+    agendaElement.innerHTML = `
+        <h2>${agendaItem.time}: ${agendaItem.activity}</h2>
+        ${agendaItem.button ? `<button onclick="showGame('${agendaItem.button}')">Go to Game</button>` : ""}
+    `;
+
+    // Automatically show the corresponding game section, if any
+    if (agendaItem.button) {
+        showGame(agendaItem.button);
+    } else {
+        hideAllGames();
+    }
+}
+
+function showGame(gameId) {
+    // Hide all games
+    const gameSections = document.querySelectorAll('.game-section');
+    gameSections.forEach(section => section.style.display = 'none');
+
+    // Show the selected game
+    const selectedGame = document.getElementById(gameId);
+    if (selectedGame) {
+        selectedGame.style.display = 'block';
+    }
+}
+
+function hideAllGames() {
+    const gameSections = document.querySelectorAll('.game-section');
+    gameSections.forEach(section => section.style.display = 'none');
+}
+
+function nextAgendaItem() {
+    if (currentAgendaIndex < agendaItems.length - 1) {
+        currentAgendaIndex++;
+        updateAgenda();
+    }
+}
+
+function previousAgendaItem() {
+    if (currentAgendaIndex > 0) {
+        currentAgendaIndex--;
+        updateAgenda();
+    }
+}
+
+function showNextAgendaItem() {
+    if (currentAgendaIndex < agendaItems.length - 1) {
+        currentAgendaIndex++;
+        updateAgenda();
+    }
+}
+
+function showPreviousAgendaItem() {
+    if (currentAgendaIndex > 0) {
+        currentAgendaIndex--;
+        updateAgenda();
+    }
+}
+
+// Initial setup on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateAgenda();
+});
+
+
+
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const toggleButton = document.getElementById("menu-toggle");
+
+    if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        toggleButton.textContent = "Hide Menu";
+    } else {
+        menu.classList.add("hidden");
+        toggleButton.textContent = "Show Menu";
+    }
+}
+

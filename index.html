@@ -29,21 +29,76 @@
     </style>
 </head>
 <body>
-    <h1>Let's Play!</h1>
-
-    <div class="menu">
-        <button onclick="showGame('scavenger-hunt')">Scavenger Hunt</button>
-        <button onclick="showGame('escape-room')">Escape Room</button>
-        <button onclick="showGame('charades')">Charades</button>
-        <button onclick="showGame('quiz')">Quiz</button>
+    <h1>Meows Games</h1>
+	
+	<div id="agenda" class="agenda-section">
+    <h1>Agenda 24</h1>
+    <div id="agenda-item" class="agenda-item">
+        <h2>1pm: Scavenger Hunt in the Mall</h2>
+        <p>Prepare for an exciting scavenger hunt! Click the button below to start.</p>
+        <button onclick="showGame('scavenger-hunt')">Go to Game</button>
     </div>
+
+    <div class="agenda-controls">
+        <button onclick="showPreviousAgendaItem()">Previous</button>
+        <button onclick="showNextAgendaItem()">Next</button>
+    </div>
+</div>
+
+
 
 <div id="scavenger-hunt" class="game-section">
     <h2>Scavenger Hunt: The Mall Expedition</h2>
-    <p>You will need a phone, data, pen and paper and your brain. We are off on a Mall Expedition</p>
+    <p>You will need a phone, data, pen and paper, and your brain. We are off on a Mall Expedition!</p>
 
- 
+    <div id="scavenger-checklist">
+        <div class="checklist-item">
+            <input type="checkbox" id="item1">
+            <label for="item1">A picture of your teammate with a mannequin</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item2">
+            <label for="item2">A picture of anything with a dragon on it</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item3">
+            <label for="item3">A receipt of something you didn't buy</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item4">
+            <label for="item4">A picture of a teammate wearing red high heels</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item5">
+            <label for="item5">A picture of a bottle of tomato sauce</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item6">
+            <label for="item6">Number of changing rooms in H & M</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item7">
+            <label for="item7">A store with a "B" in the name</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item8">
+            <label for="item8">Something priced under 50c</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item9">
+            <label for="item9">$5 to find a silly hat or glasses to wear</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item10">
+            <label for="item10">Price of a flight to London</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="item11">
+            <label for="item11">The first word in Chapter 6 of Harry Potter and the Half-Blood Prince</label>
+        </div>
+    </div>
 </div>
+
 
 <div id="escape-room" class="game-section">
     <h2>Escape Room: The Locked Bedroom</h2>
@@ -146,6 +201,9 @@
         <p>Get a device each and then Click the button below and enter the code that is given to you by the quiz master. . Good luck! </p>
         <a href="https://quizizz.com/join" target="_blank">Take the Quiz</a>
     </div>
+
+</div>
+
 
     <script src="script.js"></script>
 </body>
