@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const agendaItems = [
-	{ time: "Welcome", activity: "Welcome to the Meows game, click next to get started.", button: null },
+	{ time: "Welcome", activity: "Welcome to The Meows Games 24, click next to get started.", button: null },
     { time: "1pm", activity: "Scavenger Hunt in the Mall", button: "scavenger-hunt" },
     { time: "2:30pm", activity: "Read out Jars, Diaries, New Year Resolutions and a treat", button: null },
     { time: "3:30pm", activity: "Escape Room", button: "escape-room" },
