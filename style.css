@@ -1,0 +1,87 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5; /* Light beige background */
+}
+
+h1 {
+  text-align: center;
+  color: #333; /* Dark text for title */
+  font-size: 2em; /* Increase title size */
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.menu button {
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #eee; /* Light gray buttons */
+  color: #333; /* Dark text for buttons */
+  cursor: pointer;
+}
+
+.menu button:hover {
+  background-color: #ddd; /* Slightly darker hover effect */
+}
+
+div.game-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #eee; /* Light gray background for each section */
+}
+
+h4 {
+  margin-bottom: 10px; /* Add margin for section headers */
+}
+
+.clue {
+  display: none; /* Hide clues initially */
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f0f0f0; /* Light gray for clues */
+  font-style: italic; /* Italicize clue text */
+}
+
+.clue.show {
+  display: block; /* Display clues when triggered */
+}
+
+#code {
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#finalResult { /* Style for the final result */
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.game-section.active { /* Style for the active game section */
+  border: 2px solid #999; /* Thicker border for active section */
+  background-color: #ddd; /* Slightly darker background */
+}
+
+#timer {
+  text-align: center;
+  font-size: 1.5em;  /* Increase timer size */
+  color: #333; /* Dark text for timer */
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meows Games</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .game-section {
+            display: none; /* Initially hide all game sections */
+        }
+        .game-section.active {
+            display: block; /* Show the active game section */
+        }
+        .clue {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .clue.show {
+            display: block;
+        }
+        #timer {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Let's Play!</h1>
+
+    <div class="menu">
+        <button onclick="showGame('scavenger-hunt')">Scavenger Hunt</button>
+        <button onclick="showGame('escape-room')">Escape Room</button>
+        <button onclick="showGame('charades')">Charades</button>
+        <button onclick="showGame('quiz')">Quiz</button>
+    </div>
+
+<div id="scavenger-hunt" class="game-section">
+    <h2>Scavenger Hunt: The Lost Explorer's Expedition</h2>
+    <p>A renowned explorer, Professor Quentin Quibble, has mysteriously vanished! He left behind a series of clues hidden around his house, hinting at his latest expedition. Your mission is to follow his trail, decipher his puzzles, and uncover the secret of his disappearance.</p>
+
+    <div id="scavenger-hunt-clues">
+        <div class="scavenger-clue active" id="clue1">
+            <h3>Clue 1: Where stories are told...</h3>
+            <p>Where stories are told, and laughter echoes loud, search where the screen displays a vibrant crowd.</p>
+            <button onclick="markComplete(1)">Completed!</button>
+        </div>
+
+        <div class="scavenger-clue" id="clue2" style="display: none;">
+            <h3>Clue 2: In the realm of dreams...</h3>
+            <p>In the realm of dreams, where slumber takes its hold, look beneath the place where stories unfold.</p>
+            <button onclick="markComplete(2)">Completed!</button>
+        </div>
+
+        <div class="scavenger-clue" id="clue3" style="display: none;">
+            <h3>Clue 3: Reflections abound...</h3>
+            <p>Reflections abound in this personal space, where vanity resides, and time leaves its trace. Check where you prepare to face the day.</p>
+            <button onclick="markComplete(3)">Completed!</button>
+        </div>
+
+        <div class="scavenger-clue" id="clue4" style="display: none;">
+            <h3>Clue 4: Knowledge is power...</h3>
+            <p>Knowledge is power, in this quiet domain, where words are devoured, and wisdom we gain. Look between the covers of a book with nature on the outside.</p>
+            <button onclick="markComplete(4)">Completed!</button>
+        </div>
+
+        <div class="scavenger-clue" id="clue5" style="display: none;">
+            <h3>Clue 5: Where water flows...</h3>
+            <p>Where water flows and cleanliness prevails, search where your reflection in the mirror unveils.</p>
+            <button onclick="markComplete(5)">Completed!</button>
+        </div>
+
+        <div class="scavenger-clue" id="clue6" style="display: none;">
+            <h3>Clue 6: Guardians stand watch...</h3>
+            <p>Guardians stand watch by the path's grand start, where the mail arrives, a message to impart.</p>
+            <button onclick="markComplete(6)">Completed!</button>
+        </div>
+
+        <div class="scavenger-clue" id="clue7" style="display: none;">
+            <h3>Clue 7: Where green blades sway...</h3>
+            <p>Where green blades sway and nature takes its course, search where the sun warms, a source of growth and force. Look near where you relax and unwind.</p>
+            <button onclick="markComplete(7)">Completed!</button>
+        </div>
+
+        <div class="scavenger-clue" id="clue8" style="display: none;">
+            <h3>Clue 8: With the sun's warm kiss...</h3>
+            <p>With the sun's warm kiss and the wind's gentle sigh, find the hidden treasure where shadows lie. Use the compass and photograph to find a hidden location within the yard.</p>
+            <button onclick="markComplete(8)">Completed!</button>
+        </div>
+
+        <div class="scavenger-clue" id="clue9" style="display: none;">
+            <h3>Final Puzzle: Map and Message</h3>
+            <p>Combine the map fragments and decipher the coded message to find the final prize!</p>
+            <button onclick="markComplete(9)">Completed!</button>
+        </div>
+    </div>
+</div>
+
+    <div id="escape-room" class="game-section">
+        <h2>Escape Room: The Locked Bedroom</h2>
+        <p>You wake up in an unfamiliar bedroom, the air heavy with tension. The door is locked, and the only way out is to solve the mysteries hidden within the room. As you explore, old letters, faded papers, and forgotten clues seem to whisper secrets of those who came before you. The computer lock under the bed holds the final key to your freedom, but it’s locked away with no conventional keys in sight. The only way to unlock the door is to piece together the puzzles that were left behind. Time is running out—solve them before it’s too late.</p>
+
+    <div id="timer">60:00</div>
+    <button onclick="startTimer()">Start Timer</button>
+    <button onclick="pauseTimer()">Pause Timer</button>
+
+    <h3>Puzzles & Clues:</h3>
+    <div id="puzzles-container">
+        <div class="puzzle active" id="puzzle1">
+            <h4>1. Ciphered Notes (Desk)</h4>
+            <button onclick="toggleClue('clue1')">Did you want a clue?</button>
+            <div id="clue1" class="clue">
+                <div class="puzzle-content">
+                    <p>Backstory: You find an old journal with entries that seem coded, possibly a message from a previous occupant who tried to escape.</p>
+                    <p>Clue: A letter substitution cipher is used, with each letter replaced by another (e.g., A = Q, B = Z, C = A). Ciphered Note: “Gur cvpx rgure qb abj. V trg hc ba gur srj.”</p>
+                </div>
+            </div>
+            <button onclick="showNextPuzzle(2)">Unlock Next Puzzle</button>
+        </div>
+
+        <div class="puzzle" id="puzzle2" style="display: none;">
+            <h4>2. Grid Puzzle (Nightstand)</h4>
+            <button onclick="toggleClue('clue2')">Did you want a clue?</button>
+            <div id="clue2" class="clue">
+                <div class="puzzle-content">
+                    <p>Backstory: You discover a notebook filled with half-completed puzzles, likely from someone else who attempted to escape.</p>
+                    <p>Clue: A blank grid with numbers scattered throughout—players must deduce the missing numbers.</p>
+                </div>
+            </div>
+            <button onclick="showNextPuzzle(3)">Unlock Next Puzzle</button>
+        </div>
+
+        <div class="puzzle" id="puzzle3" style="display: none;">
+            <h4>3. Mirror Riddle (Behind the mirror)</h4>
+            <button onclick="toggleClue('clue3')">Did you want a clue?</button>
+            <div id="clue3" class="clue">
+                <div class="puzzle-content">
+                    <p>Backstory: In the quiet stillness of the room, a reflection taunts you—there must be more to what you see.</p>
+                    <p>Clue: “You see your reflection, but I hide a secret. Solve this riddle to find me.”</p>
+                </div>
+            </div>
+            <button onclick="showNextPuzzle(4)">Unlock Next Puzzle</button>
+        </div>
+
+        <div class="puzzle" id="puzzle4" style="display: none;">
+            <h4>4. Letter Frequency Puzzle (Desk)</h4>
+            <button onclick="toggleClue('clue4')">Did you want a clue?</button>
+            <div id="clue4" class="clue">
+                <div class="puzzle-content">
+                    <p>Backstory: The letters seem to whisper their secrets, revealing cryptic messages from someone who once searched for the truth.</p>
+                    <p>Clue: A poem is written in faded ink on a sheet of paper: “In shadows deep, the truth lies hidden, Through whispered words, the path is bidden.”</p>
+                </div>
+            </div>
+            <button onclick="showNextPuzzle(5)">Unlock Next Puzzle</button>
+        </div>
+
+        <div class="puzzle" id="puzzle5" style="display: none;">
+            <h4>5. Riddle and Sum Puzzle (Nightstand)</h4>
+            <button onclick="toggleClue('clue5')">Did you want a clue?</button>
+            <div id="clue5" class="clue">
+                <div class="puzzle-content">
+                    <p>Backstory: A crumpled note is found among old letters—something mathematical left by a desperate mind seeking a way out.</p>
+                    <p>Clue: “Multiply the day by the month, subtract the year, and add the hour.”</p>
+                </div>
+            </div>
+            <button onclick="showNextPuzzle(6)">Unlock Next Puzzle</button>
+        </div>
+
+        <div class="puzzle" id="puzzle6" style="display: none;">
+            <h4>6. Final Combination (Computer under the bed)</h4>
+            <p>Backstory: The computer was meant to hold not only files but the final key to freedom—a symbol of those who tried before.</p>
+            <p>Enter the final code into the computer:</p>
+            <input type="text" id="finalCode" placeholder="Enter final code">
+            <button onclick="checkFinalCode()">Unlock the Computer</button>
+            <p id="finalResult"></p>
+        </div>
+    </div>
+</div>
+
+    <div id="charades" class="game-section">
+        <h2>Charades</h2>
+        <p>Get ready to act it out!...</p>
+        <button onclick="getRandomItem()">Get a Random Item</button>
+        <p id="item"></p>
+    </div>
+
+    <div id="quiz" class="game-section">
+        <h2>Quiz Time!</h2>
+        <p>Click the button below to be taken to a fun quiz. Good luck!</p>
+        <a href="https://quizizz.com/admin/quiz/6771c8ea9a9a737f12ba9579" target="_blank">Take the Quiz</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
