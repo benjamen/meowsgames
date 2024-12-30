@@ -2,7 +2,7 @@ let timerInterval;
 let timeLeft = 3600;
 let timerRunning = false;
 
-function checkCode() { /* ... (same as before) */ }
+
 
 function checkFinalCode() {
     const finalCode = document.getElementById("finalCode").value;
@@ -333,6 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const agendaItems = [
+	{ time: "Welcome", activity: "Welcome to the Meows game, click next to get started.", button: null },
     { time: "1pm", activity: "Scavenger Hunt in the Mall", button: "scavenger-hunt" },
     { time: "2:30pm", activity: "Read out Jars, Diaries, New Year Resolutions and a treat", button: null },
     { time: "3:30pm", activity: "Escape Room", button: "escape-room" },
@@ -351,7 +352,7 @@ function updateAgenda() {
     const agendaElement = document.getElementById("agenda-item");
     agendaElement.innerHTML = `
         <h2>${agendaItem.time}: ${agendaItem.activity}</h2>
-        ${agendaItem.button ? `<button onclick="showGame('${agendaItem.button}')">Go to Game</button>` : ""}
+        ${agendaItem.button ? "" : ""}
     `;
 
     // Automatically show the corresponding game section, if any
@@ -373,6 +374,7 @@ function showGame(gameId) {
         selectedGame.style.display = 'block';
     }
 }
+
 
 function hideAllGames() {
     const gameSections = document.querySelectorAll('.game-section');
