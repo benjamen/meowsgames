@@ -19,8 +19,8 @@ function checkFinalCode() {
 }
 
 function toggleClue(clueId) {
-    const clue = document.getElementById(clueId);
-    clue.classList.toggle('show');
+  const clue = document.getElementById(clueId);
+  clue.classList.toggle('show');
 }
 
 function startTimer() {

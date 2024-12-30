@@ -85,3 +85,19 @@ h4 {
   font-size: 1.5em;  /* Increase timer size */
   color: #333; /* Dark text for timer */
 }
+
+.clue .puzzle-content { /* Hide content within clue initially */
+    display: none;
+}
+
+.clue.show .puzzle-content { /* Show content when clue has 'show' class */
+    display: block;
+}
+.clue{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Light gray for clues */
+    font-style: italic; /* Italicize clue text */
+    margin-top: 10px;
+    padding: 10px;
+}
