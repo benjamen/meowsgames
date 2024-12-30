@@ -45,19 +45,18 @@
  
 </div>
 
-    <div id="escape-room" class="game-section">
-        <h2>Escape Room: The Locked Bedroom</h2>
-        <p>You wake up in an unfamiliar bedroom, the air heavy with tension. The door is locked, and the only way out is to solve the mysteries hidden within the room. As you explore, old letters, faded papers, and forgotten clues seem to whisper secrets of those who came before you. The computer lock under the bed holds the final key to your freedom, but it’s locked away with no conventional keys in sight. The only way to unlock the door is to piece together the puzzles that were left behind. Time is running out—solve them before it’s too late.</p>
+<div id="escape-room" class="game-section">
+    <h2>Escape Room: The Locked Bedroom</h2>
+    <p>You wake up in an unfamiliar bedroom, the air heavy with tension. The door is locked, and the only way out is to solve the mysteries hidden within the room. As you explore, old letters, faded papers, and forgotten clues seem to whisper secrets of those who came before you. The computer lock under the bed holds the final key to your freedom, but it’s locked away with no conventional keys in sight. The only way to unlock the door is to piece together the puzzles that were left behind. Time is running out—solve them before it’s too late. </p>
 
     <div id="timer">60:00</div>
     <button onclick="startTimer()">Start Timer</button>
     <button onclick="pauseTimer()">Pause Timer</button>
 
-    <h3>Puzzles & Clues:</h3>
-       <div id="puzzles-container">
+    <div id="puzzles-container">
         <div class="puzzle active" id="puzzle1">
-            <h4>1. Ciphered Notes (Desk)</h4>
-            <button onclick="toggleClue('clue1')">Did you want a clue?</button>
+            <h4>1. Ciphered Notes (Floor)</h4>
+            <button onclick="toggleClue('clue1')">Need a clue?</button>
             <div id="clue1" class="clue">
                 <div class="puzzle-content">
                     <p>Backstory: You find an old journal...</p>
@@ -65,65 +64,75 @@
                 </div>
             </div>
             <button onclick="showNextPuzzle(2)">Unlock Next Puzzle</button>
+            <button onclick="showPreviousPuzzle(0)">Previous Puzzle</button>
         </div>
 
         <div class="puzzle" id="puzzle2" style="display: none;">
             <h4>2. Grid Puzzle (Nightstand)</h4>
-            <button onclick="toggleClue('clue2')">Did you want a clue?</button>
+            <button onclick="toggleClue('clue2')">Need a clue?</button>
             <div id="clue2" class="clue">
                 <div class="puzzle-content">
                     <p>Backstory: You discover a notebook...</p>
-                    <p>Clue: A blank grid with numbers scattered throughout...</p>
+                    <p>Clue: A blank grid with numbers scattered throughout... Look at the lamp for writing to get to the desk.</p>
                 </div>
             </div>
             <button onclick="showNextPuzzle(3)">Unlock Next Puzzle</button>
+            <button onclick="showPreviousPuzzle(1)">Previous Puzzle</button>
         </div>
 
         <div class="puzzle" id="puzzle3" style="display: none;">
             <h4>3. Mirror Riddle (Behind the mirror)</h4>
-            <button onclick="toggleClue('clue3')">Did you want a clue?</button>
+            <button onclick="toggleClue('clue3')">Need a clue?</button>
             <div id="clue3" class="clue">
                 <div class="puzzle-content">
                     <p>Backstory: In the quiet stillness...</p>
                     <p>Clue: “You see your reflection, but I hide a secret. Solve this riddle to find me.”</p>
+                    <p>Hint: Turn on the light to reveal the next clue.</p>
                 </div>
             </div>
             <button onclick="showNextPuzzle(4)">Unlock Next Puzzle</button>
+            <button onclick="showPreviousPuzzle(2)">Previous Puzzle</button>
         </div>
 
         <div class="puzzle" id="puzzle4" style="display: none;">
             <h4>4. Letter Frequency Puzzle (Desk)</h4>
-            <button onclick="toggleClue('clue4')">Did you want a clue?</button>
+            <button onclick="toggleClue('clue4')">Need a clue?</button>
             <div id="clue4" class="clue">
                 <div class="puzzle-content">
                     <p>Backstory: The letters seem to whisper...</p>
                     <p>Clue: A poem is written...“In shadows deep, the truth lies hidden, Through whispered words, the path is bidden.”</p>
+                    <p>Hint: Focus on the most common letters (4 or more).</p>
                 </div>
             </div>
             <button onclick="showNextPuzzle(5)">Unlock Next Puzzle</button>
+            <button onclick="showPreviousPuzzle(3)">Previous Puzzle</button>
         </div>
 
         <div class="puzzle" id="puzzle5" style="display: none;">
             <h4>5. Riddle and Sum Puzzle (Nightstand)</h4>
-            <button onclick="toggleClue('clue5')">Did you want a clue?</button>
+            <button onclick="toggleClue('clue5')">Need a clue?</button>
             <div id="clue5" class="clue">
                 <div class="puzzle-content">
                     <p>Backstory: A crumpled note is found...</p>
                     <p>Clue: “Multiply the day by the month, subtract the year, and add the hour.”</p>
+                    <p>Hint: Use today's date: 31/12/2024</p>
                 </div>
             </div>
-            <button onclick="showNextPuzzle(6)">Unlock Next Puzzle</button>
+            <button onclick="showNextPuzzle(6)">Unlock Final Puzzle</button>
+            <button onclick="showPreviousPuzzle(4)">Previous Puzzle</button>
         </div>
 
-         <div class="puzzle" id="puzzle6"> 
-        <h4>Final Combination here - https://benjamen.github.io/meowsgames/</h4>
-        <p>Enter the final code into the computer:</p>
-        <input type="text" id="finalCode" placeholder="Enter final code">
-        <button onclick="checkFinalCode()">Unlock the Computer</button>
-        <p id="finalResult"></p>
-    </div>
+        <div class="puzzle" id="puzzle6">
+            <h4>Final Combination here - https://benjamen.github.io/meowsgames/</h4>
+            <p>Enter the final code into the computer:</p>
+            <input type="text" id="finalCode" placeholder="Enter final code">
+            <button onclick="checkFinalCode()">Unlock the Computer</button>
+            <p id="finalResult"></p>
+        </div>
     </div>
 </div>
+
+
 
     <div id="charades" class="game-section">
         <h2>Charades</h2>

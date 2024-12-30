@@ -8,7 +8,7 @@ function checkFinalCode() {
     const finalCode = document.getElementById("finalCode").value;
     const finalResult = document.getElementById("finalResult");
 
-    if (finalCode === "415341522") {
+    if (finalCode === "4154201652") {
         finalResult.textContent = "Congratulations! You unlocked the computer!";
         finalResult.style.color = "green";
         clearInterval(timerInterval);
@@ -22,6 +22,23 @@ function toggleClue(clueId) {
   const clue = document.getElementById(clueId);
   clue.classList.toggle('show');
 }
+
+
+function showPreviousPuzzle(puzzleNumber) {
+    const currentPuzzle = document.querySelector('.puzzle.active');
+    if (currentPuzzle) {
+        currentPuzzle.classList.remove('active');
+        currentPuzzle.style.display = 'none';
+    }
+
+    const previousPuzzle = document.getElementById(`puzzle${puzzleNumber}`);
+    if (previousPuzzle) {
+        previousPuzzle.style.display = 'block';
+        previousPuzzle.classList.add('active');
+    }
+}
+
+
 
 function startTimer() {
     if (!timerRunning) {
